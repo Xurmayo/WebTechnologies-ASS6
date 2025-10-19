@@ -1,0 +1,136 @@
+:root {
+  --brand: #8B0000;      /* deep red */
+  --accent: #FFD700;     /* warm gold */
+  --cream: #fdf6ec;      /* light creamy background */
+  --text: #1b1b1f;       /* main text color */
+}
+
+/* ======== Base Layout ======== */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--cream) 0%, #fff8ef 100%);
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ======== Navbar ======== */
+.navbar {
+  background: var(--brand);
+}
+.navbar-brand {
+  color: var(--accent) !important;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+.nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ======== Main Section ======== */
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ======== Form Card ======== */
+.form-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.form-card h4 {
+  color: var(--brand);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.form-card ul {
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* ======== Buttons ======== */
+.btn-brand {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn-brand:hover {
+  background: #a61919;
+}
+
+/* ======== Footer ======== */
+footer {
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* ===== Calculator Fixes ===== */
+.input-big {
+  font-size: 1.2rem;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  border-radius: 0.6rem;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.2s ease;
+}
+.input-big:focus {
+  box-shadow: 0 0 6px rgba(139, 0, 0, 0.4);
+  outline: none;
+}
+.input-big::placeholder {
+  color: #777;
+  opacity: 1;
+  text-align: center;
+}
+
+/* Bigger buttons to match inputs */
+.btn-brand.btn-lg {
+  font-size: 1.4rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 0.6rem;
+}
+
+/* right-side card on wide screens */
+@media (min-width: 992px) {
+  .form-card { max-width: 520px; }
+}
